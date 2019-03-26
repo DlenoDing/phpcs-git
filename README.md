@@ -7,8 +7,11 @@ PHPCS GIT HOOK
 git clone https://github.com/squizlabs/PHP_CodeSniffer.git
 
 cd PHPCodeSniffer
+
 php bin/phpcs -h
+
 php bin/phpcbf -h
+
 
 3.在Windows系统中，实际是执行phpcs.bat文件，这个文件又引用了同目录下的phpcs文件。
 
@@ -22,12 +25,12 @@ GOTO RUN
 :USE_PEAR_PATH
 set PHPBIN=%PHP_PEAR_PHP_BIN%
 :RUN
-"%PHPBIN%" "D:\phpcs\PHPCodeSniffer\scripts\phpcs" %*
+"%PHPBIN%" "D:\phpcs\PHPCodeSniffer\bin\phpcs" %*
 
 
 4.把路径D:\phpcs\PHPCodeSniffer\bin\加入到PATH中，就可以在CMD中执行phpcs了。
 说明：phpcbf也需要这样的修改。
 
-5.将./gitHook/pre-commit覆盖到项目.git\hooks下
+5.将pre-commit覆盖到项目.git\hooks下
 
 6.设置到编辑器phpStrom
