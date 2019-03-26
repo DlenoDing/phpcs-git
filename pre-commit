@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#/var/opt/gitlab/git-data/repositories/service/xxx.git
-
 PROJECT=`php -r "echo dirname(dirname(dirname(realpath('$0'))));"`
 STAGED_FILES_CMD=`git diff --cached --name-only --diff-filter=ACMR HEAD | grep \\\\.php`
 
@@ -31,13 +29,13 @@ done
 if [ "$FILES" != "" ]
 then
     echo "Running Code Sniffer Check. Code standard PSR2."
-    D:/myFiles/PHP_CodeSniffer/bin/phpcs --standard=PSR2 --colors --encoding=utf-8 -n -p $FILES
+    D:/myFiles/Php-Cs/PHPCodeSniffer/bin/phpcs --standard=PSR2 --colors --encoding=utf-8 -n -p $FILES
     if [ $? != 0 ]
     then
         echo "Code Sniffer Check Error!"
 
 	echo "Running Code Sniffer Fix. Code standard:PSR2."
-	D:/myFiles/PHP_CodeSniffer/bin/phpcbf --standard=PSR2 $FILES
+	D:/myFiles/Php-Cs/PHPCodeSniffer/bin/phpcbf --standard=PSR2 $FILES
 
 	echo "Please recommit!"
 
