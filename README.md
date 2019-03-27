@@ -1,12 +1,9 @@
-PHPCS GIT HOOK
-======================
-
-1.把路径D:\phpcs\php54n\加入到PATH中
+1.把路径D:\myFiles\Php-Cs\php72n加入到PATH中
 
 2.用git命令下载（或直接下载）仓库源码，然后直接执行：
 git clone https://github.com/squizlabs/PHP_CodeSniffer.git
 
-cd PHPCodeSniffer
+cd D:\myFiles\Php-Cs\PHPCodeSniffer
 
 php bin/phpcs -h
 
@@ -19,7 +16,7 @@ php bin/phpcbf -h
 
 如下，需指定php.exe和phpcs文件的绝对位置：
 
-if "%PHPBIN%" == "" set PHPBIN=/php54n/php.exe
+if "%PHPBIN%" == "" set PHPBIN=D:\myFiles\Php-Cs\php72n\php.exe
 
 if not exist "%PHPBIN%" if "%PHP_PEAR_PHP_BIN%" neq "" goto USE_PEAR_PATH
 
@@ -31,12 +28,11 @@ set PHPBIN=%PHP_PEAR_PHP_BIN%
 
 :RUN
 
-"%PHPBIN%" "/PHPCodeSniffer/bin/phpcs" %*
+"%PHPBIN%" "%~dp0\phpcs" %*
 
-
-4.把路径/PHPCodeSniffer\bin\加入到PATH中，就可以在CMD中执行phpcs了。
+4.把路径D:\myFiles\Php-Cs\PHPCodeSniffer\bin加入到PATH中，就可以在CMD中执行phpcs了。
 说明：phpcbf也需要这样的修改。
 
-5.将pre-commit覆盖到项目.git/hooks下
+5.将./gitHook/pre-commit覆盖到项目.git\hooks下
 
 6.设置到编辑器phpStrom
